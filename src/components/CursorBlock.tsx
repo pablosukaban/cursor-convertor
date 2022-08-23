@@ -15,6 +15,10 @@ const CursorBlock = ({
   onChangeValue,
   onChangeCurrency,
 }: CursorBlockProps) => {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChangeValue(e.target.value);
+  };
+
   return (
     <div className="flex max-w-lg flex-col gap-5 ">
       <ul className="flex rounded-md border border-gray-300">
@@ -36,7 +40,7 @@ const CursorBlock = ({
       <input
         value={value}
         placeholder={"0"}
-        onChange={(event) => onChangeValue(event.target.value)}
+        onChange={inputChangeHandler}
         type="number"
         className="border border-gray-300 p-3 text-3xl "
       />
